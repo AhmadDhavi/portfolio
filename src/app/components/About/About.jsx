@@ -3,7 +3,7 @@
 import styles from './About.module.css'
 import { FaCode, FaLaptopCode, FaRocket, FaHeart } from 'react-icons/fa'
 import { motion } from 'framer-motion'
-import { Tilt } from 'react-tilt'
+import Tilt from 'react-parallax-tilt'
 
 export default function About() {
   const highlights = [
