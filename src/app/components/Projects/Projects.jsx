@@ -16,28 +16,28 @@ const projectsData = [
     title: "UMN Digital Canteen + AI Integration",
     description: "Android-based tenant management system. Successfully integrated the Fake Review Detection model via backend API to automatically filter user comments, bridging mobile UX with ML intelligence.",
     techStack: ["Android", "Kotlin", "Python API", "Machine Learning"],
-    link: "#"
+    link: "https://github.com/AhmadDhavi/Canteen_Digital_UMN"
   },
   {
     number: "03",
     title: "Digital Library Management System", 
     description: "A robust full-stack library platform serving 50+ active students. Features Role-Based Access Control (RBAC) for secure data handling and streamlined admin workflows.",
     techStack: ["Laravel", "PHP", "Tailwind CSS", "MySQL"],
-    link: "#"
+    link: "https://ignitelitaverse.com/login"
   },
   {
     number: "04",
     title: "Warmindo Papa Oy Website",
     description: "A modern marketing website built with Next.js for high performance. Features include a dynamic digital menu, interactive location maps, and seamless social media integration.",
     techStack: ["Next.js", "React", "JavaScript", "Tailwind"],
-    link: "#"
+    link: "https://project-warmindo.vercel.app/"
   },
   {
     number: "05",
     title: "Donat KPK Brand Website",
     description: "Optimized brand website built with Laravel Blade. Focused on site structure efficiency and consistent user experience (UX) for menu browsing and information delivery.",
     techStack: ["Laravel", "PHP", "Blade", "MySQL"],
-    link: "#"
+    link: "https://github.com/dapss/donatkpk"
   }
 ]
 
