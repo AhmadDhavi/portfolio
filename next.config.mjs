@@ -1,9 +1,22 @@
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   output: "export",  
+//   images: {
+//     unoptimized: true  
+//   }
+// };
+
+// export default nextConfig;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",  
+  output: "export",
+  basePath: "/portfolio",
+  assetPrefix: "/portfolio/",
   images: {
-    unoptimized: true  
-  }
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
+
