@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Projects.module.css'
-import { FaArrowRight } from 'react-icons/fa' // Hapus FaExternalLinkAlt dari import
+import { FaArrowRight } from 'react-icons/fa'
 
 export default function ProjectCard({ number, title, description, techStack, link, index }) {
   return (
@@ -23,7 +23,12 @@ export default function ProjectCard({ number, title, description, techStack, lin
         ))}
       </div>
       
-      <a href={link} className={styles.projectLink}>
+      <a 
+        href={link} 
+        className={styles.projectLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <span>View Project</span>
         <FaArrowRight className={styles.arrow} />
       </a>
