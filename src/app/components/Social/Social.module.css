@@ -1,0 +1,276 @@
+.socialSection {
+  padding: 120px 0;
+  position: relative;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionTag {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.sectionTitle {
+  font-size: clamp(42px, 6vw, 64px);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0 0 15px 0;
+}
+
+.sectionDescription {
+  color: #ffffff;
+  opacity: 0.7;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Social Grid */
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Social Card */
+.socialCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 35px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.6s ease-out backwards;
+  animation-delay: var(--animation-delay);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.socialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top left, var(--social-color), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.socialCard:hover::before {
+  opacity: 0.1;
+}
+
+.socialCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--social-color);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* Social Icon */
+.socialIcon {
+  font-size: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 0px var(--social-color));
+}
+
+.socialIcon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.socialCard:hover .socialIcon {
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(0 5px 15px var(--social-color));
+}
+
+/* Arrow Icon */
+.arrowIcon {
+  font-size: 20px;
+  color: #ffffff;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.socialCard:hover .arrowIcon {
+  opacity: 1;
+  transform: translate(5px, -5px);
+  color: var(--social-color);
+}
+
+/* Social Name */
+.socialName {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  transition: color 0.3s ease;
+}
+
+.socialCard:hover .socialName {
+  color: var(--social-color);
+}
+
+/* Handle */
+.handle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0.9;
+  margin: 0 0 12px 0;
+}
+
+/* Description */
+.description {
+  font-size: 14px;
+  color: #ffffff;
+  opacity: 0.7;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .socialSection {
+    padding: 80px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 50px;
+  }
+
+  .socialGrid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .socialCard {
+    padding: 30px;
+  }
+
+  .socialIcon {
+    font-size: 44px;
+  }
+
+  .socialIcon svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .socialName {
+    font-size: 22px;
+  }
+
+  .handle {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .socialSection {
+    padding: 60px 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 40px;
+  }
+
+  .sectionTag {
+    font-size: 12px;
+  }
+
+  .sectionDescription {
+    font-size: 16px;
+  }
+
+  .socialGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .socialCard {
+    padding: 28px;
+  }
+
+  .socialIcon {
+    font-size: 40px;
+  }
+
+  .socialIcon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrowIcon {
+    font-size: 18px;
+  }
+
+  .socialName {
+    font-size: 20px;
+  }
+
+  .handle {
+    font-size: 13px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+}

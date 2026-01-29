@@ -1,0 +1,299 @@
+/* =========================================
+   BASE STYLES (DESKTOP)
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  background: transparent;
+  padding: 0 20px;
+}
+
+.nav.scrolled {
+  background: rgba(0, 0, 0, 0.9); /* Lebih gelap agar kontras */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  z-index: 1002;
+  cursor: pointer;
+  position: relative; 
+}
+
+/* --- DESKTOP MENU --- */
+.navMenu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.menuList {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuList a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.menuList a:hover {
+  color: #fff;
+}
+
+.menuList a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.menuList a:hover::after {
+  width: 100%;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 15px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255,255,255,0.2);
+}
+
+.socialIcon {
+  color: #fff;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex; /* Fix alignment */
+  align-items: center;
+}
+
+.socialIcon:hover {
+  transform: translateY(-3px);
+  color: #bbb;
+}
+
+/* Sembunyikan elemen mobile di desktop */
+.hamburger, 
+.closeButton, 
+.mobileSocial {
+  display: none;
+}
+
+/* Overlay background (Opsional, tapi kita pakai full screen menu jadi ini jarang terpakai) */
+.overlay {
+  display: none; 
+}
+
+/* =========================================
+   MOBILE RESPONSIVE (FULL SCREEN FIX)
+   ========================================= */
+@media (max-width: 992px) {
+  
+  /* Tombol Hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002; /* Tetap terlihat di header */
+    padding: 0;
+  }
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Sembunyikan Social Desktop */
+  .socialLinks {
+    display: none;
+  }
+
+  /* --- MENU FULL SCREEN --- */
+  .navMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; /* Support browser mobile modern */
+    background: #000000; /* Hitam pekat menutupi semua */
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    
+    /* Z-Index Super Tinggi agar menutupi Logo & Header */
+    z-index: 2000; 
+    
+    /* Animasi Fade In/Out */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  /* State Aktif (Menu Terbuka) */
+  .navMenu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* List Menu */
+  .menuList {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    width: 100%;
+  }
+
+  .menuList a {
+    font-size: 28px; /* Font besar */
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .menuList a:hover {
+    color: #888;
+  }
+
+  /* Hilangkan garis bawah hover di mobile agar lebih bersih */
+  .menuList a::after {
+    display: none;
+  }
+
+  /* Tombol Close (X) */
+  .closeButton {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2001; /* Di atas background hitam */
+  }
+
+  .closeButton:active {
+    background: #fff;
+    color: #000;
+    transform: rotate(90deg);
+  }
+
+  /* Social Icons Mobile */
+  .mobileSocial {
+    display: flex;
+    gap: 25px;
+    margin-top: 60px;
+  }
+
+  .mobileSocialIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .mobileSocialIcon:active {
+    transform: scale(0.9);
+    background: rgba(255,255,255,0.3);
+  }
+
+  /* Animasi Item Masuk (Staggered Animation) */
+  .navMenu.active .menuList li {
+    animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .navMenu.active .menuList li:nth-child(1) { animation-delay: 0.1s; }
+  .navMenu.active .menuList li:nth-child(2) { animation-delay: 0.15s; }
+  .navMenu.active .menuList li:nth-child(3) { animation-delay: 0.2s; }
+  .navMenu.active .menuList li:nth-child(4) { animation-delay: 0.25s; }
+  .navMenu.active .menuList li:nth-child(5) { animation-delay: 0.3s; }
+  .navMenu.active .menuList li:nth-child(6) { animation-delay: 0.35s; }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix untuk Mode Landscape (HP miring) */
+@media (max-width: 992px) and (max-height: 500px) {
+  .navMenu {
+    justify-content: flex-start;
+    padding: 20px 0;
+    overflow-y: auto;
+  }
+  .menuList {
+    margin-top: 60px;
+    gap: 15px;
+  }
+  .menuList a {
+    font-size: 20px;
+  }
+  .mobileSocial {
+    margin: 20px 0;
+  }
+}

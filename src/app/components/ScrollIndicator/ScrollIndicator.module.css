@@ -1,0 +1,153 @@
+.scrollIndicator {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: bounceUpDown 2s ease-in-out infinite;
+}
+
+@keyframes bounceUpDown {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
+}
+
+.scrollIndicator:hover {
+  animation-play-state: paused;
+  transform: translate(-50%, -5px);
+}
+
+/* Mouse Shape */
+.mouse {
+  display: block;
+  width: 26px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.scrollIndicator:hover .mouse {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Mouse Wheel */
+.wheel {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 2px;
+  animation: scrollDown 1.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes scrollDown {
+  0% {
+    top: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 24px;
+    opacity: 0;
+  }
+}
+
+.scrollIndicator:hover .wheel {
+  opacity: 1;
+}
+
+/* Text Label */
+.text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: opacity 0.3s ease;
+}
+
+.scrollIndicator:hover .text {
+  opacity: 0.9;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .scrollIndicator {
+    bottom: 35px;
+  }
+
+  .mouse {
+    width: 24px;
+    height: 38px;
+  }
+
+  .wheel {
+    width: 3px;
+    height: 7px;
+  }
+
+  .text {
+    font-size: 11px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .scrollIndicator {
+    bottom: 30px;
+  }
+
+  .mouse {
+    width: 22px;
+    height: 36px;
+  }
+
+  .wheel {
+    width: 3px;
+    height: 6px;
+    top: 7px;
+  }
+
+  @keyframes scrollDown {
+    0% {
+      top: 7px;
+      opacity: 1;
+    }
+    100% {
+      top: 22px;
+      opacity: 0;
+    }
+  }
+
+  .text {
+    font-size: 10px;
+  }
+}
+
+/* Hide on very small screens or landscape mobile */
+@media (max-height: 600px) {
+  .scrollIndicator {
+    display: none;
+  }
+}
